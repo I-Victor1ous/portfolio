@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-canvas: #f4f7fb;
+  --color-panel: #ffffff;
+  --color-line: #dce3ed;
+  --color-ink: #0f172a;
+  --color-mute: #5c6b7e;
+  --color-accent: #0d9488;
+  --color-accent-dim: #0f766e;
+  --shadow-glow: 0 0 0 1px rgba(13, 148, 136, 0.1),
+    0 16px 48px -24px rgba(15, 23, 42, 0.15);
+}
+
+.dark {
+  color-scheme: dark;
+  --color-canvas: #0b0d10;
+  --color-panel: #14181e;
+  --color-line: #242b35;
+  --color-ink: #e8edf4;
+  --color-mute: #9aa6b5;
+  --color-accent: #5eead4;
+  --color-accent-dim: #2dd4bf;
+  --shadow-glow: 0 0 0 1px rgba(94, 234, 212, 0.12),
+    0 24px 80px -32px rgba(0, 0, 0, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-canvas text-ink antialiased;
+}
+
+::selection {
+  background: rgba(13, 148, 136, 0.22);
+  color: #0f172a;
+}
+
+.dark ::selection {
+  background: rgba(94, 234, 212, 0.28);
+  color: #f8fffc;
+}

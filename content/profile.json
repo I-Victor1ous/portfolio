@@ -1,0 +1,83 @@
+{
+  "navInitials": "IC",
+  "name": "Ivan Lun Hui Chen",
+  "role": "Aspiring software engineer | Master of Information Technology student @ UNSW",
+  "location": "Sydney, AU",
+  "headline": "Passionate about building software that makes a difference",
+  "about": "",
+  "email": "ichen9380@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/ivan-chen-60b47830a/",
+  "githubUsername": "I-Victor1ous",
+  "pinnedRepoNames": [
+    "FPLPredict",
+    "Keylogger",
+    "mips_emulator",
+    "project-backend",
+    "Sudoku"
+  ],
+  "skills": [
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "PostgreSQL",
+    "Java",
+    "Tailwind CSS",
+    "Python",
+    "C",
+    "C++",
+    "Vercel"
+  ],
+  "experience": [
+    {
+      "company": "David Jones",
+      "title": "Sales Professional",
+      "location": "Sydney",
+      "start": "10/2025",
+      "end": "N/A",
+      "highlights": [
+        "Managed customer interactions and provided product recommendations in a team of 8 to enhance sales performance using English, Mandarin, and Cantonese."
+      ]
+    },
+    {
+      "company": "Arc UNSW",
+      "title": "Senior Suggestion Box Volunteer",
+      "location": "Sydney",
+      "start": "02/2025",
+      "end": "12/2025",
+      "highlights": [
+        "Led 2 teams of 6 volunteers to collect and analyze feedback from 5000+ students over the year to improve the student experience at UNSW."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "University of New South Wales",
+      "credential": "Master of Information Technology",
+      "year": "06/2026 - 12/2027",
+      "details": [
+        "Received International Scientia Coursework Scholarship.",
+        "WAM of 92."
+      ]
+    },
+    {
+      "school": "University of New South Wales",
+      "credential": "Bachelor of Science in Computer Science",
+      "year": "05/2024 - 06/2026",
+      "details": [
+        "Received Dean's Honours List Award for 2024 and 2025.",
+        "Australia's Global University Award",
+        "WAM of 85."
+      ]
+    },
+    {
+      "school": "University of Witswatersrand",
+      "credential": "Bachelor of Science in Computer Science",
+      "year": "02/2023 - 04/2024",
+      "details": [
+        "Received Dean's list for 2023.",
+        "Awarded University Entrance Scholarship."
+      ]
+    }
+  ]
+}
