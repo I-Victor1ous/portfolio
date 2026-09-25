@@ -13,7 +13,7 @@ Edit **`profile.json`** to change everything recruiters see: name, bio, jobs, ed
 | `pinnedRepoNames` | Repo names (or `owner/repo`) shown first when GraphQL pins are unavailable — must be **your** public repos |
 | `skills` | Tag list under About |
 | `experience` | Array of jobs with `highlights` bullet strings |
-| `education` | Array of schools; each entry has `details` (bullet strings, like job highlights) |
+| `education` | Schools with `start`, `end`, and `details` (plain lines under each card) |
 
 Save the file and refresh the dev server. No TypeScript edits required for copy changes.
 

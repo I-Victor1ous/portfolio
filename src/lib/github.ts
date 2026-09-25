@@ -1,7 +1,7 @@
 import { profile } from "@/src/data/profile";
 import { githubFetch } from "@/src/lib/github-fetch";
+import { normalizeExternalUrl } from "@/src/lib/urls";
 
-const REVALIDATE_SECONDS = 60 * 60;
 const USER_AGENT = "personal-web-portfolio";
 
 export type GithubRepo = {
@@ -75,11 +75,8 @@ type PinnedNode = {
   repositoryTopics?: { nodes?: Array<{ topic?: { name?: string } }> };
 };
 
-function fetchCacheOptions(): RequestInit {
-  if (process.env.NODE_ENV === "development") {
-    return { cache: "no-store" };
-  }
-  return { next: { revalidate: REVALIDATE_SECONDS } };
+function githubFetchOptions(): RequestInit {
+  return { cache: "no-store" };
 }
 
 function formatGithubError(err: unknown): string {
@@ -124,7 +121,7 @@ function fromPinnedNode(node: PinnedNode): GithubRepo | null {
     name: node.name,
     description: node.description ?? null,
     url: node.url,
-    homepageUrl: node.homepageUrl || null,
+    homepageUrl: normalizeExternalUrl(node.homepageUrl),
     stars: node.stargazerCount ?? 0,
     updatedAt: node.updatedAt ?? new Date().toISOString(),
     language: node.primaryLanguage?.name ?? null,
@@ -142,7 +139,7 @@ function fromRest(repo: RestRepo, pinned: boolean): GithubRepo {
     name: repo.name,
     description: repo.description,
     url: repo.html_url,
-    homepageUrl: repo.homepage || null,
+    homepageUrl: normalizeExternalUrl(repo.homepage),
     stars: repo.stargazers_count,
     updatedAt: repo.updated_at,
     language: repo.language,
@@ -185,7 +182,7 @@ async function fetchPinnedViaGraphQl(login: string): Promise<GithubRepo[] | null
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query, variables: { login } }),
-    ...fetchCacheOptions(),
+    ...githubFetchOptions(),
   });
 
   if (!res.ok) return null;
@@ -207,7 +204,7 @@ async function fetchOwnerRepos(login: string): Promise<RestRepo[]> {
     `https://api.github.com/users/${encodeURIComponent(login)}/repos?per_page=100&sort=updated&type=owner`,
     {
       headers: authHeaders(),
-      ...fetchCacheOptions(),
+      ...githubFetchOptions(),
     },
   );
 
@@ -252,14 +249,9 @@ export async function getGithubProjects(): Promise<{
       }
     }
 
-    const pinnedSet = new Set(pinned.map((r) => r.name));
-    const rest = restRepos
-      .filter((r) => !r.fork && !pinnedSet.has(r.name))
-      .map((r) => fromRest(r, false));
-
     return {
       username,
-      repos: [...pinned, ...rest],
+      repos: pinned.map((r) => ({ ...r, pinned: true })),
       source:
         pinnedFromGraphql && pinnedFromGraphql.length > 0
           ? "graphql+rest"
@@ -267,6 +259,7 @@ export async function getGithubProjects(): Promise<{
       error: null,
     };
   } catch (err) {
-    return { username, repos: [], source: "rest", error: formatGithubError(err) };
+    console.error("[github]", formatGithubError(err));
+    return { username, repos: [], source: "rest", error: null };
   }
 }

@@ -4,7 +4,7 @@
   "role": "Aspiring software engineer | Master of Information Technology student @ UNSW",
   "location": "Sydney, AU",
   "headline": "Passionate about building software that makes a difference",
-  "about": "",
+  "about": "I'm currently a Master of Information Technology student at UNSW, focused on building clear, reliable software. I enjoy understanding concepts and seeing them come to life in applications. It is always exciting to see how ideas slowly grow into useful sofware.",
   "email": "ichen9380@gmail.com",
   "linkedin": "https://www.linkedin.com/in/ivan-chen-60b47830a/",
   "githubUsername": "I-Victor1ous",
@@ -26,7 +26,14 @@
     "Python",
     "C",
     "C++",
-    "Vercel"
+    "Vercel",
+    "Git",
+    "Express.js",
+    "Bootstrap",
+    "Tailwind",
+    "HTML",
+    "CSS",
+    "JavaScript"
   ],
   "experience": [
     {
@@ -34,7 +41,7 @@
       "title": "Sales Professional",
       "location": "Sydney",
       "start": "10/2025",
-      "end": "N/A",
+      "end": "Present",
       "highlights": [
         "Managed customer interactions and provided product recommendations in a team of 8 to enhance sales performance using English, Mandarin, and Cantonese."
       ]
@@ -54,7 +61,8 @@
     {
       "school": "University of New South Wales",
       "credential": "Master of Information Technology",
-      "year": "06/2026 - 12/2027",
+      "start": "06/2026",
+      "end": "Expected 12/2027",
       "details": [
         "Received International Scientia Coursework Scholarship.",
         "WAM of 92."
@@ -63,7 +71,8 @@
     {
       "school": "University of New South Wales",
       "credential": "Bachelor of Science in Computer Science",
-      "year": "05/2024 - 06/2026",
+      "start": "05/2024",
+      "end": "06/2026",
       "details": [
         "Received Dean's Honours List Award for 2024 and 2025.",
         "Australia's Global University Award",
@@ -73,7 +82,8 @@
     {
       "school": "University of Witswatersrand",
       "credential": "Bachelor of Science in Computer Science",
-      "year": "02/2023 - 04/2024",
+      "start": "02/2023",
+      "end": "04/2024",
       "details": [
         "Received Dean's list for 2023.",
         "Awarded University Entrance Scholarship."

@@ -12,7 +12,8 @@ export type ExperienceItem = {
 export type EducationItem = {
   school: string;
   credential: string;
-  year: string;
+  start: string;
+  end: string;
   details: string[];
 };
 

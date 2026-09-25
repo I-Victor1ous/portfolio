@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check, Copy, Github, Linkedin, Mail } from "lucide-react";
+import { SectionHeader } from "@/src/components/SectionHeader";
 import { ResumeDownloadLink } from "@/src/components/ResumeDownloadLink";
 import { profile } from "@/src/data/profile";
 
@@ -27,15 +28,15 @@ export function Contact({
   return (
     <section
       id="contact"
-      className="mx-auto max-w-5xl scroll-mt-24 px-5 py-16 sm:px-8"
+      className="scroll-mt-24 border-t border-line bg-panel/40 px-5 py-16 sm:px-8"
     >
-      <h2 className="text-sm tracking-[0.18em] text-accent-dim uppercase">
-        Contact
-      </h2>
-      <p className="mt-4 max-w-xl text-lg text-mute">
-        Get in touch with me via email or LinkedIn! Open to new opportunities and collaborations.
-      </p>
-      <div className="mt-6 flex flex-wrap gap-3">
+      <div className="mx-auto max-w-5xl">
+        <SectionHeader
+          title="Contact"
+          description="Open to internships, graduate roles, and collaborations. The fastest way to reach me is email."
+        />
+        <div className="mt-8 rounded-2xl border border-line bg-panel p-6 shadow-glow sm:p-8">
+          <div className="flex flex-wrap gap-3">
         <button
           type="button"
           onClick={copyEmail}
@@ -74,6 +75,8 @@ export function Contact({
           <Github className="h-4 w-4" aria-hidden />
           GitHub
         </a>
+          </div>
+        </div>
       </div>
     </section>
   );
