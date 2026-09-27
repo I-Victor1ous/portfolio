@@ -45,19 +45,29 @@ function Timeline({
   );
 }
 
-export function Experience({ resumeAvailable }: { resumeAvailable: boolean }) {
+export function Experience({
+  resumeAvailable,
+  resumeHref,
+}: {
+  resumeAvailable: boolean;
+  resumeHref: string | null;
+}) {
   return (
     <section
       id="experience"
       className="mx-auto max-w-5xl scroll-mt-24 px-5 py-16 sm:px-8 sm:pl-28"
     >
       <SectionHeader title="Experience & education" />
-      {resumeAvailable ? (
+      {resumeAvailable && resumeHref ? (
         <div className="mt-4 flex flex-wrap items-center gap-3 rounded-xl border border-line bg-panel/60 px-4 py-3">
           <p className="text-sm text-mute">
             Prefer a PDF? Download a copy of my resume.
           </p>
-          <ResumeDownloadLink variant="secondary" label="PDF resume" />
+          <ResumeDownloadLink
+            href={resumeHref}
+            variant="secondary"
+            label="PDF resume"
+          />
         </div>
       ) : null}
 

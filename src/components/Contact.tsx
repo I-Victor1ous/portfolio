@@ -9,9 +9,11 @@ import { profile } from "@/src/data/profile";
 export function Contact({
   githubUsername,
   resumeAvailable,
+  resumeHref,
 }: {
   githubUsername: string;
   resumeAvailable: boolean;
+  resumeHref: string | null;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -49,7 +51,9 @@ export function Contact({
           )}
           {copied ? "Copied" : "Copy email"}
         </button>
-        {resumeAvailable ? <ResumeDownloadLink variant="primary" /> : null}
+        {resumeAvailable && resumeHref ? (
+          <ResumeDownloadLink href={resumeHref} variant="primary" />
+        ) : null}
         <a
           href={`mailto:${profile.email}`}
           className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-ink hover:border-accent/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"

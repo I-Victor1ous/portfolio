@@ -27,6 +27,7 @@ export type Profile = {
   email: string;
   linkedin: string;
   githubUsername: string;
+  resumeUrl: string | null;
   pinnedRepoNames: string[];
   skills: string[];
   experience: ExperienceItem[];

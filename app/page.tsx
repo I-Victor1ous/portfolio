@@ -7,21 +7,34 @@ import { ProjectsSection } from "@/src/components/ProjectsSection";
 import { profile } from "@/src/data/profile";
 import { getGithubProjects } from "@/src/lib/github";
 import { isResumeAvailable } from "@/src/lib/resume.server";
+import {
+  getResumeDownloadHref,
+  isResumeLinkAvailable,
+} from "@/src/lib/resume-public";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const github = await getGithubProjects();
-  const resumeAvailable = isResumeAvailable();
+  const localResume = isResumeAvailable();
+  const resumeHref = getResumeDownloadHref(localResume);
+  const resumeAvailable = isResumeLinkAvailable(localResume);
   const year = new Date().getFullYear();
 
   return (
     <>
       <Nav />
       <main id="main">
-        <Hero githubUsername={github.username} resumeAvailable={resumeAvailable} />
+        <Hero
+          githubUsername={github.username}
+          resumeAvailable={resumeAvailable}
+          resumeHref={resumeHref}
+        />
         <About />
-        <Experience resumeAvailable={resumeAvailable} />
+        <Experience
+          resumeAvailable={resumeAvailable}
+          resumeHref={resumeHref}
+        />
         <ProjectsSection
           initial={{
             username: github.username,
@@ -33,6 +46,7 @@ export default async function Home() {
         <Contact
           githubUsername={github.username}
           resumeAvailable={resumeAvailable}
+          resumeHref={resumeHref}
         />
       </main>
       <footer className="mx-auto max-w-5xl border-t border-line px-5 py-8 text-sm text-mute sm:px-8">

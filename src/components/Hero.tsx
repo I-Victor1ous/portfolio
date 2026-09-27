@@ -6,9 +6,11 @@ import { profile } from "@/src/data/profile";
 export function Hero({
   githubUsername,
   resumeAvailable,
+  resumeHref,
 }: {
   githubUsername: string;
   resumeAvailable: boolean;
+  resumeHref: string | null;
 }) {
   return (
     <section
@@ -35,7 +37,9 @@ export function Hero({
             <Mail className="h-4 w-4" aria-hidden />
             Email
           </a>
-          {resumeAvailable ? <ResumeDownloadLink variant="primary" /> : null}
+          {resumeAvailable && resumeHref ? (
+            <ResumeDownloadLink href={resumeHref} variant="primary" />
+          ) : null}
           <a
             href={profile.linkedin}
             target="_blank"

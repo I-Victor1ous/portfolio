@@ -1,5 +1,4 @@
 import { Download } from "lucide-react";
-import { RESUME_DOWNLOAD_PATH } from "@/src/lib/resume-path";
 
 type Variant = "primary" | "secondary";
 
@@ -11,16 +10,22 @@ const styles: Record<Variant, string> = {
 };
 
 export function ResumeDownloadLink({
+  href,
   variant = "primary",
   label = "Download resume",
 }: {
+  href: string;
   variant?: Variant;
   label?: string;
 }) {
+  const external = href.startsWith("http");
+
   return (
     <a
-      href={RESUME_DOWNLOAD_PATH}
-      download
+      href={href}
+      {...(external
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : { download: true })}
       className={styles[variant]}
     >
       <Download className="h-4 w-4" aria-hidden />
