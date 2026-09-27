@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Outfit } from "next/font/google";
 import { profile } from "@/src/data/profile";
 import { ThemeInitScript } from "@/src/components/ThemeInitScript";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -29,7 +30,7 @@ export default function RootLayout({
       <head>
         <ThemeInitScript />
       </head>
-      <body className="min-h-screen font-sans">{children}</body>
+      <body className="min-h-screen font-sans">{children}<Analytics /></body>
     </html>
   );
 }

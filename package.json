@@ -10,6 +10,7 @@
     "lint": "node scripts/run-with-ca.mjs lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "lucide-react": "^0.544.0",
     "next": "^15.5.3",
     "react": "^19.1.1",
